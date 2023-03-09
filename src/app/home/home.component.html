@@ -5,6 +5,7 @@
       <button class="btn btn-primary" type="submit">Szukaj</button>
     </form>
   </section>
+  <div (click)="openDialog()">modal</div>
   <section class="message-section" *ngIf="!(recivedCards$ | async) && (responseObject$ | async)">
     <div class="message-container" *ngIf="(responseObject$ | async) as obj">
         {{obj.code}}

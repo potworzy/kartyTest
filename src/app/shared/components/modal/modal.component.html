@@ -1,1 +1,8 @@
-<p>modal works!</p>
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content>
+ {{description}}
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">{{closeButtonText}}</button>
+</mat-dialog-actions>
