@@ -1,1 +1,40 @@
-<p>home works!</p>
+<div class="home-container">
+  <section class="search-form-container">
+    <form [formGroup]='searchForm' (ngSubmit)="submit()">
+      <input formControlName="search" type="text" placeholder="nr rejestracyjny" maxlength="7">
+      <button class="btn btn-primary" type="submit">Szukaj</button>
+    </form>
+  </section>
+  <section class="message-section" *ngIf="!(recivedCards$ | async) && (responseObject$ | async)">
+    <div class="message-container" *ngIf="(responseObject$ | async) as obj">
+        {{obj.code}}
+        {{obj.request_id}}
+        {{obj.reg_info?.make}}
+        {{obj.reg_info?.model}}
+        {{obj.reg_info?.year}}
+        {{obj.description}}
+        {{obj.error_hash}}
+    </div>
+  </section>
+  <section class="cards-section" *ngIf="(recivedCards$ | async)">
+    <ul>
+      <li *ngFor="let card of (recivedCards$ | async)">
+        <span>{{card.make}}</span>
+        <span>{{card.model}}</span>
+        <span>{{card.year_from}}</span>
+        <span>{{card.year_to}}</span>
+        <span>{{card.body_type}}</span>
+        <span>{{card.engine}}</span>
+        <span>{{card.fuel}}</span>
+        <span>{{card.fuel_alternative}}</span>
+        <span>{{card.engine_capacity_ccm}}</span>
+        <span>{{card.number_of_doors}}</span>
+        <span>{{card.line}}</span>
+        <span>{{card.version}}</span>
+        <span>{{card.generation}}</span>
+        <span>{{card.series}}</span>
+        <a href="{{card.card_link}}">link</a>
+      </li>
+    </ul>
+  </section>
+</div>

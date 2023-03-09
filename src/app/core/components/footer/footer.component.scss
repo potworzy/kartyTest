@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/base/reset";
+@import "../../../../assets/styles/base/base";
+@import "../../../../assets/styles/base/typography";
+@import "../../../../assets/styles/abstracts/variables";
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  min-height: 5rem;
+  width: 100%;
+  background-color: $base-dark-5-elements;
+  color: $base-text-light;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  min-height: 5rem
+}

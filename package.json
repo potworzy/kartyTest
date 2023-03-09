@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "api": "json-server --watch api/api.json --port 9020"
+    "api": "json-server --watch api/api.json --port 9020 --routes routes.json"
   },
   "private": true,
   "dependencies": {
