@@ -12,6 +12,9 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 import { SliderComponent } from './shared/components/slider/slider.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

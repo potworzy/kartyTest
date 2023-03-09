@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { catchError, defaultIfEmpty, map, Observable, of, tap } from 'rxjs';
 import { RescueCard, RescueDataSheet } from '../core/interfaces/rescue-data-sheets.interface';
 import { BackendService } from '../core/services/backend.service';
+import { ModalComponent } from '../shared/components/modal/modal.component';
+
 
 @Component({
   selector: 'app-home',
@@ -15,7 +18,7 @@ export class HomeComponent implements OnInit {
   responseObject$: Observable<Partial<RescueDataSheet>> = new Observable();
   recivedCards$: Observable<RescueCard[]> = new Observable();
 
-  constructor(private backendService: BackendService) { }
+  constructor(private backendService: BackendService, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.searchForm = new FormGroup({
@@ -27,11 +30,12 @@ export class HomeComponent implements OnInit {
     if (this.searchForm.valid) {
       const resObject$ = this.backendService.search(this.searchForm.value.search);
       this.responseObject$ = resObject$.pipe(
+        //dla json-server każdy błąd przewidziany
         catchError(error => of({
           error: true,
-          code: 5,
+          code: 500,
           description: "Inny poważny błąd",
-          error_hash: "#0x1a2b3c4d5e6"
+          error_hash: "#0x00000000"
         }))
       )
       const cards$ = this.backendService.search(this.searchForm.value.search);
@@ -40,6 +44,31 @@ export class HomeComponent implements OnInit {
         defaultIfEmpty([])
       )
     }
+  }
+
+   openDialog() {
+    const dialogConfig = new MatDialogConfig();
+     dialogConfig.disableClose = false
+     dialogConfig.autoFocus = true;
+    dialogConfig.position = {
+      top: '',
+      left: ''
+    };
+    dialogConfig.minWidth = '500px'
+    dialogConfig.minHeight = '500px'
+    dialogConfig.maxWidth = '500px'
+    dialogConfig.maxHeight = '500px'
+
+     dialogConfig.data = {
+       description:'Opis'
+     }
+
+    const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
+
+    // dialogRef.afterClosed().subscribe(
+    //     data => console.log("Dialog output:", data)
+    // );
+
   }
 
 }
