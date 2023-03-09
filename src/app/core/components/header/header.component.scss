@@ -1,0 +1,20 @@
+@import "../../../../assets/styles/base/reset";
+@import "../../../../assets/styles/base/base";
+@import "../../../../assets/styles/base/typography";
+@import "../../../../assets/styles/abstracts/variables";
+
+.header {
+  min-height: 5rem;
+  width: 100%;
+  display: flex;
+  position: sticky;
+  background-color: $base-dark-5-elements;
+  color: $base-text-light;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
