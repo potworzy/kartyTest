@@ -60,7 +60,9 @@ export class HomeComponent implements OnInit {
     dialogConfig.maxHeight = '500px'
 
      dialogConfig.data = {
-       description:'Opis'
+       description: 'Opis',
+       title: 'Tytuł',
+       closeButtonText: 'Zamknij'
      }
 
     const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
