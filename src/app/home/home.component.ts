@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   searchForm: FormGroup = new FormGroup({});
   responseObject$: Observable<Partial<RescueDataSheet>> = new Observable();
   recivedCards$: Observable<RescueCard[]> = new Observable();
+  card:Partial<RescueCard>[] = []
 
   constructor(private backendService: BackendService, private dialog:MatDialog) { }
 
@@ -38,15 +39,40 @@ export class HomeComponent implements OnInit {
           error_hash: "#0x00000000"
         }))
       )
-      const cards$ = this.backendService.search(this.searchForm.value.search);
-      this.recivedCards$ = cards$.pipe(
+      //const cards$ = this.backendService.search(this.searchForm.value.search);
+      this.recivedCards$ = resObject$.pipe(
         map(data => data.rescue_cards),
         defaultIfEmpty([])
       )
     }
   }
 
-   openDialog() {
+   openDialog1() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false
+    dialogConfig.autoFocus = true;
+    dialogConfig.position = {
+      top: '',
+      left: ''
+    };
+    dialogConfig.minWidth = '320px'
+    dialogConfig.maxWidth = '500px'
+    dialogConfig.maxHeight = '500px'
+
+     dialogConfig.data = {
+      description: 'Opis',
+      title: 'Tytuł',
+      closeButtonText: 'Zamknij'
+     }
+
+    const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
+
+    // dialogRef.afterClosed().subscribe(
+    //     data => console.log("Dialog output:", data)
+    // );
+
+   }
+  openDialog2() {
     const dialogConfig = new MatDialogConfig();
      dialogConfig.disableClose = false
      dialogConfig.autoFocus = true;
@@ -54,8 +80,7 @@ export class HomeComponent implements OnInit {
       top: '',
       left: ''
     };
-    dialogConfig.minWidth = '500px'
-    dialogConfig.minHeight = '500px'
+    dialogConfig.minWidth = '320px'
     dialogConfig.maxWidth = '500px'
     dialogConfig.maxHeight = '500px'
 

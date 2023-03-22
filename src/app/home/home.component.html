@@ -1,11 +1,16 @@
 <div class="home-container">
   <section class="search-form-container">
-    <form [formGroup]='searchForm' (ngSubmit)="submit()">
-      <input formControlName="search" type="text" placeholder="nr rejestracyjny" maxlength="7">
-      <button class="btn btn-primary" type="submit">Szukaj</button>
-    </form>
+    <div class="search-wrapper">
+      <form [formGroup]='searchForm' (ngSubmit)="submit()" class="search-form">
+        <input formControlName="search" type="text" placeholder="nr rejestracyjny" maxlength="7">
+        <button class="btn btn-primary" type="submit">Szukaj</button>
+      </form>
+      <div class="modals-container">
+        <div class="modal-link" (click)="openDialog1()">modal1</div>
+        <div class="modal-link" (click)="openDialog2()">modal2</div>
+      </div>
+    </div>
   </section>
-  <div (click)="openDialog()">modal</div>
   <section class="message-section" *ngIf="!(recivedCards$ | async) && (responseObject$ | async)">
     <div class="message-container" *ngIf="(responseObject$ | async) as obj">
         {{obj.code}}
