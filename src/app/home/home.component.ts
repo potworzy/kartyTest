@@ -60,8 +60,8 @@ export class HomeComponent implements OnInit {
     dialogConfig.maxHeight = '500px'
 
      dialogConfig.data = {
-      description: 'Opis',
-      title: 'Tytuł',
+      description: 'Rest api z json obsługuje 1-10 jako poprawnie znalezione odpowiedzi i p1-5 jako błędne wyszukania',
+      title: 'Jak szukać',
       closeButtonText: 'Zamknij'
      }
 
@@ -85,8 +85,8 @@ export class HomeComponent implements OnInit {
     dialogConfig.maxHeight = '500px'
 
      dialogConfig.data = {
-       description: 'Opis',
-       title: 'Tytuł',
+       description: 'test test test test test test test test test test test test test test test test test test test',
+       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
        closeButtonText: 'Zamknij'
      }
 
