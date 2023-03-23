@@ -29,7 +29,7 @@ import { LoadingInterceptor } from './core/utilities/loading.interceptor';
     SpinnerComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     HttpClientModule,

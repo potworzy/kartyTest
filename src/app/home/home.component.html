@@ -1,13 +1,17 @@
 <div class="home-container">
   <section class="search-form-container">
-    <div class="search-wrapper">
-      <form [formGroup]='searchForm' (ngSubmit)="submit()" class="search-form">
-        <input formControlName="search" type="text" placeholder="nr rejestracyjny" maxlength="7">
-        <button class="btn btn-primary" type="submit">Szukaj</button>
-      </form>
-      <div class="modals-container">
-        <div class="modal-link" (click)="openDialog1()">modal1</div>
-        <div class="modal-link" (click)="openDialog2()">modal2</div>
+    <div class="hero-inside-container">
+      <h1 class="page-header">Szukaj tutaj</h1>
+      <h2>Nie trać czasu i sprawdź</h2>
+      <div class="search-wrapper">
+        <form [formGroup]='searchForm' (ngSubmit)="submit()" class="search-form">
+          <input formControlName="search" type="text" placeholder="nr rejestracyjny" maxlength="7">
+          <button class="btn btn-primary" type="submit">Szukaj</button>
+        </form>
+        <div class="modals-container">
+          <div class="modal-link" (click)="openDialog1()">Jak szukać?</div>
+          <div class="modal-link" (click)="openDialog2()">Lorem ipsum</div>
+        </div>
       </div>
     </div>
   </section>

@@ -6,22 +6,35 @@
 .home-container {
   width: 100%;
   height: calc(100% - 5rem);
+}
+
+.modal-link {
+  cursor: pointer;
+}
+
+.search-form-container {
+  min-height: 40vh;
+  background-color: $base-light-5-elements;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modals-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
   }
   
-  .modal-link {
-    cursor: pointer;
-  }
-  
-  .search-form-container {
-    min-height: 40vh;
-    background-color: $base-light-5-elements;
+  .hero-inside-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-  }
-  
-  .modals-container {
-    display: flex;
-    justify-content: space-between;
+    align-items: center;
+    width: max-content;
+    background-color: $base-light-3-elements;
+    padding: 2rem 4rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    border: solid 0.5rem $base-dark-4-elements;
 }
